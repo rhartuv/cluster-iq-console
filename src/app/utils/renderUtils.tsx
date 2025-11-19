@@ -22,22 +22,13 @@ export const getResultIcon = (result: ResultStatus) => {
   return (
     {
       [ResultStatus.Success]: (
-        <InfoCircleIcon
-          color="var(--pf-t--temp--dev--tbd)"
-          /* CODEMODS: original v5 color was --pf-v5-global--success-color--100 */ title="Info"
-        />
+        <InfoCircleIcon color="var(pf-t--global--icon--color--status--success--default)" title="Info" />
       ),
       [ResultStatus.Failed]: (
-        <ExclamationTriangleIcon
-          color="var(--pf-t--temp--dev--tbd)"
-          /* CODEMODS: original v5 color was --pf-v5-global--danger-color--100 */ title="Error"
-        />
+        <ExclamationTriangleIcon color="var(pf-t--global--icon--color--status--danger--default)" title="Error" />
       ),
       [ResultStatus.Warning]: (
-        <ExclamationCircleIcon
-          color="var(--pf-t--temp--dev--tbd)"
-          /* CODEMODS: original v5 color was --pf-v5-global--warning-color--100 */ title="Warning"
-        />
+        <ExclamationCircleIcon color="var(pf-t--global--icon--color--status--warning--default)" title="Warning" />
       ),
     }[result] || <UnknownIcon color="gray" title="Unknown" />
   );

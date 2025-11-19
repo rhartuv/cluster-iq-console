@@ -82,7 +82,8 @@ const AggregateStatusCards: React.FunctionComponent = () => {
                   hasGutter
                   style={
                     {
-                      '--pf-v5-l-gallery--GridTemplateColumns--min': '30%',
+                      '--pf-t-global--layout--grid-template-columns--min': '30%',
+                      '--pf-t-global--spacer--md': '1rem',
                     } as any
                   }
                 >
