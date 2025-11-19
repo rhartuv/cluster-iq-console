@@ -1,4 +1,4 @@
-import { PageSection, PageSectionVariants, Panel, TextContent, Text } from '@patternfly/react-core';
+import { PageSection, Panel, Content } from '@patternfly/react-core';
 import React from 'react';
 import ServersTableToolbar from './components/ServersTableToolbar';
 import ServersTable from './components/ServersTable';
@@ -36,12 +36,12 @@ const Servers: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <PageSection variant={PageSectionVariants.light}>
-        <TextContent>
-          <Text component="h1">Servers {archived ? '- History' : '- Active'}</Text>
-        </TextContent>
+      <PageSection hasBodyWrapper={false}>
+        <Content>
+          <Content component="h1">Servers {archived ? '- History' : '- Active'}</Content>
+        </Content>
       </PageSection>
-      <PageSection variant={PageSectionVariants.light} isFilled>
+      <PageSection hasBodyWrapper={false} isFilled>
         <Panel>
           <ServersTableToolbar
             searchValue={serverName}

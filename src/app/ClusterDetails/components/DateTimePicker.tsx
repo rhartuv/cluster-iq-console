@@ -163,8 +163,13 @@ const DateTimePicker: React.FunctionComponent<DateTimePickerProps> = ({ onChange
             appendTo={document.body}
             zIndex={9999}
           >
-            <Button variant="control" aria-label="Toggle timezone" onClick={() => setIsTimeZoneOpen(!isTimeZoneOpen)}>
-              <GlobeAmericasIcon /> {selectedTimeZone}
+            <Button
+              icon={<GlobeAmericasIcon />}
+              variant="control"
+              aria-label="Toggle timezone"
+              onClick={() => setIsTimeZoneOpen(!isTimeZoneOpen)}
+            >
+              {selectedTimeZone}
             </Button>
           </Popover>
         </InputGroupItem>

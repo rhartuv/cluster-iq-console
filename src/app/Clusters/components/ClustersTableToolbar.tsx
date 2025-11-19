@@ -375,9 +375,9 @@ export const ClustersTableToolbar: React.FunctionComponent<ClustersTableToolbarP
           <ToolbarGroup variant="filter-group">
             <ToolbarItem>{attributeDropdown}</ToolbarItem>
             <ToolbarFilter
-              chips={filterValue !== '' ? [filterValue] : ([] as string[])}
-              deleteChip={() => setFilterValue('')}
-              deleteChipGroup={() => setFilterValue('')}
+              labels={filterValue !== '' ? [filterValue] : ([] as string[])}
+              deleteLabel={() => setFilterValue('')}
+              deleteLabelGroup={() => setFilterValue('')}
               categoryName={categoryName}
               showToolbarItem={activeAttributeMenu === 'accountName' || activeAttributeMenu === 'clusterName'}
             >
@@ -385,9 +385,9 @@ export const ClustersTableToolbar: React.FunctionComponent<ClustersTableToolbarP
             </ToolbarFilter>
             {!archived && (
               <ToolbarFilter
-                chips={statusSelection ? [statusSelection] : []}
-                deleteChip={() => setStatusSelection(null)}
-                deleteChipGroup={() => setStatusSelection(null)}
+                labels={statusSelection ? [statusSelection] : []}
+                deleteLabel={() => setStatusSelection(null)}
+                deleteLabelGroup={() => setStatusSelection(null)}
                 categoryName="Status"
                 showToolbarItem={activeAttributeMenu === 'Status'}
               >
@@ -395,9 +395,9 @@ export const ClustersTableToolbar: React.FunctionComponent<ClustersTableToolbarP
               </ToolbarFilter>
             )}
             <ToolbarFilter
-              chips={providerSelections || []}
-              deleteChip={(category, chip) => onProviderMenuSelect(undefined, chip as string)}
-              deleteChipGroup={() => setProviderSelections([])}
+              labels={providerSelections || []}
+              deleteLabel={(category, chip) => onProviderMenuSelect(undefined, chip as string)}
+              deleteLabelGroup={() => setProviderSelections([])}
               categoryName="Provider"
               showToolbarItem={activeAttributeMenu === 'Provider'}
             >

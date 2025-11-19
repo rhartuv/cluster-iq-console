@@ -4,7 +4,6 @@ import { parseScanTimestamp, parseNumberToCurrency } from 'src/app/utils/parseFu
 import { useParams } from 'react-router-dom';
 import {
   PageSection,
-  PageSectionVariants,
   Tabs,
   Tab,
   TabContent,
@@ -148,7 +147,7 @@ const ServerDetails: React.FunctionComponent = () => {
   return (
     <Page>
       {/* Page header */}
-      <PageSection variant={PageSectionVariants.light}>
+      <PageSection hasBodyWrapper={false}>
         <Flex
           spaceItems={{ default: 'spaceItemsMd' }}
           alignItems={{ default: 'alignItemsFlexStart' }}
@@ -165,12 +164,12 @@ const ServerDetails: React.FunctionComponent = () => {
         </Flex>
         {/* Page tabs */}
       </PageSection>
-      <PageSection type="tabs" variant={PageSectionVariants.light}>
+      <PageSection hasBodyWrapper={false} type="tabs">
         <Tabs activeKey={activeTabKey} onSelect={handleTabClick} usePageInsets id="open-tabs-example-tabs-list">
           <Tab eventKey={0} title={<TabTitleText>Details</TabTitleText>} tabContentId={`tabContent${0}`} />
         </Tabs>
       </PageSection>
-      <PageSection variant={PageSectionVariants.light}>
+      <PageSection hasBodyWrapper={false}>
         <TabContent key={0} eventKey={0} id={`tabContent${0}`} activeKey={activeTabKey} hidden={0 !== activeTabKey}>
           <TabContentBody>{detailsTabContent}</TabContentBody>
         </TabContent>

@@ -4,6 +4,7 @@ import {
   Masthead,
   MastheadToggle,
   MastheadMain,
+  MastheadLogo,
   MastheadBrand,
   MastheadContent,
   PageSidebar,
@@ -18,7 +19,7 @@ import {
   ToolbarGroup,
   DropdownList,
 } from '@patternfly/react-core';
-import BarsIcon from '@patternfly/react-icons/dist/esm/icons/bars-icon';
+
 import { QuestionCircleIcon, RedhatIcon, ExternalLinkAltIcon } from '@patternfly/react-icons';
 import SidebarNavigation from './SidebarNavigation';
 import { useUser } from '../Contexts/UserContext';
@@ -57,7 +58,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
       <>
         {link.label}
         {link.isExternal && (
-          <span style={{ marginLeft: 'var(--pf-v5-global--spacer--sm)', verticalAlign: 'middle' }}>
+          <span style={{ marginLeft: 'var(--pf-t--global--spacer--sm)', verticalAlign: 'middle' }}>
             {' '}
             <ExternalLinkAltIcon />
           </span>
@@ -117,7 +118,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   const headerToolbar = (
     <Toolbar id="toolbar" isFullHeight isStatic style={{ width: '100%' }}>
       <ToolbarContent style={{ width: '100%' }}>
-        <ToolbarGroup align={{ default: 'alignRight' }} spaceItems={{ default: 'spaceItemsMd' }}>
+        <ToolbarGroup align={{ default: 'alignEnd' }}>
           <ToolbarItem>
             <Dropdown
               isOpen={isHelpMenuOpen}
@@ -172,23 +173,24 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   const header = (
     <Masthead>
-      <MastheadToggle>
-        <PageToggleButton
-          variant="plain"
-          aria-label="Global navigation"
-          isSidebarOpen={isSidebarOpen}
-          onSidebarToggle={onSidebarToggle}
-          id="vertical-nav-toggle"
-        >
-          <BarsIcon />
-        </PageToggleButton>
-      </MastheadToggle>
       <MastheadMain>
+        <MastheadToggle>
+          <PageToggleButton
+            isHamburgerButton
+            variant="plain"
+            aria-label="Global navigation"
+            isSidebarOpen={isSidebarOpen}
+            onSidebarToggle={onSidebarToggle}
+            id="vertical-nav-toggle"
+          ></PageToggleButton>
+        </MastheadToggle>
         <RedhatIcon style={{ color: 'red', fontSize: '2.8em' }} />
-        <MastheadBrand style={{ marginLeft: '10px', color: 'white', fontSize: '2em' }}>
-          <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
-            ClusterIQ
-          </NavLink>
+        <MastheadBrand data-codemods>
+          <MastheadLogo data-codemods style={{ marginLeft: '10px', color: 'white', fontSize: '2em' }}>
+            <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
+              ClusterIQ
+            </NavLink>
+          </MastheadLogo>
         </MastheadBrand>
       </MastheadMain>
       <MastheadContent style={{ width: '100%' }}>{headerToolbar}</MastheadContent>
@@ -207,7 +209,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
 
   return (
     <>
-      <Page header={header} sidebar={sidebar} mainContainerId={pageId}>
+      <Page masthead={header} sidebar={sidebar} mainContainerId={pageId}>
         {children}
       </Page>
       <AboutModalComponent isOpen={isAboutModalOpen} onClose={() => setIsAboutModalOpen(false)}></AboutModalComponent>

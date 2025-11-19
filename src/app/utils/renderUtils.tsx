@@ -12,7 +12,7 @@ export function renderStatusLabel(labelText: string | null | undefined) {
     case ClusterStates.Terminated:
       return <Label color="purple">{labelText}</Label>;
     case ClusterStates.Unknown:
-      return <Label color="gold">{labelText}</Label>;
+      return <Label color="yellow">{labelText}</Label>;
     default:
       return <Label color="grey">{labelText}</Label>;
   }
@@ -21,9 +21,24 @@ export function renderStatusLabel(labelText: string | null | undefined) {
 export const getResultIcon = (result: ResultStatus) => {
   return (
     {
-      [ResultStatus.Success]: <InfoCircleIcon color="var(--pf-v5-global--success-color--100)" title="Info" />,
-      [ResultStatus.Failed]: <ExclamationTriangleIcon color="var(--pf-v5-global--danger-color--100)" title="Error" />,
-      [ResultStatus.Warning]: <ExclamationCircleIcon color="var(--pf-v5-global--warning-color--100)" title="Warning" />,
+      [ResultStatus.Success]: (
+        <InfoCircleIcon
+          color="var(--pf-t--temp--dev--tbd)"
+          /* CODEMODS: original v5 color was --pf-v5-global--success-color--100 */ title="Info"
+        />
+      ),
+      [ResultStatus.Failed]: (
+        <ExclamationTriangleIcon
+          color="var(--pf-t--temp--dev--tbd)"
+          /* CODEMODS: original v5 color was --pf-v5-global--danger-color--100 */ title="Error"
+        />
+      ),
+      [ResultStatus.Warning]: (
+        <ExclamationCircleIcon
+          color="var(--pf-t--temp--dev--tbd)"
+          /* CODEMODS: original v5 color was --pf-v5-global--warning-color--100 */ title="Warning"
+        />
+      ),
     }[result] || <UnknownIcon color="gray" title="Unknown" />
   );
 };

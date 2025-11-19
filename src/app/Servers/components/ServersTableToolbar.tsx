@@ -360,9 +360,9 @@ export const ServersTableToolbar: React.FunctionComponent<ServersTableToolbarPro
           <ToolbarGroup variant="filter-group">
             <ToolbarItem>{attributeDropdown}</ToolbarItem>
             <ToolbarFilter
-              chips={searchValue !== '' ? [searchValue] : ([] as string[])}
-              deleteChip={() => setSearchValue('')}
-              deleteChipGroup={() => setSearchValue('')}
+              labels={searchValue !== '' ? [searchValue] : ([] as string[])}
+              deleteLabel={() => setSearchValue('')}
+              deleteLabelGroup={() => setSearchValue('')}
               categoryName="Name"
               showToolbarItem={activeAttributeMenu === 'Servers'}
             >
@@ -370,9 +370,9 @@ export const ServersTableToolbar: React.FunctionComponent<ServersTableToolbarPro
             </ToolbarFilter>
             {!archived && (
               <ToolbarFilter
-                chips={statusSelection ? [statusSelection] : []}
-                deleteChip={() => setStatusSelection(null)}
-                deleteChipGroup={() => setStatusSelection(null)}
+                labels={statusSelection ? [statusSelection] : []}
+                deleteLabel={() => setStatusSelection(null)}
+                deleteLabelGroup={() => setStatusSelection(null)}
                 categoryName="Status"
                 showToolbarItem={activeAttributeMenu === 'Status'}
               >
@@ -380,9 +380,9 @@ export const ServersTableToolbar: React.FunctionComponent<ServersTableToolbarPro
               </ToolbarFilter>
             )}
             <ToolbarFilter
-              chips={providerSelections || []}
-              deleteChip={(category, chip) => onProviderMenuSelect(undefined, chip as string)}
-              deleteChipGroup={() => setProviderSelections([])}
+              labels={providerSelections || []}
+              deleteLabel={(category, chip) => onProviderMenuSelect(undefined, chip as string)}
+              deleteLabelGroup={() => setProviderSelections([])}
               categoryName="Provider"
               showToolbarItem={activeAttributeMenu === 'Provider'}
             >

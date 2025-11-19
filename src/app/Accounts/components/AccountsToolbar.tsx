@@ -280,9 +280,9 @@ export const AccountsToolbar: React.FunctionComponent<AccountsToolbarProps> = ({
           <ToolbarGroup variant="filter-group">
             <ToolbarItem>{attributeDropdown}</ToolbarItem>
             <ToolbarFilter
-              chips={searchValue !== '' ? [searchValue] : ([] as string[])}
-              deleteChip={() => setSearchValue('')}
-              deleteChipGroup={() => setSearchValue('')}
+              labels={searchValue !== '' ? [searchValue] : ([] as string[])}
+              deleteLabel={() => setSearchValue('')}
+              deleteLabelGroup={() => setSearchValue('')}
               categoryName="Name"
               showToolbarItem={activeAttributeMenu === 'Account'}
             >
@@ -290,9 +290,9 @@ export const AccountsToolbar: React.FunctionComponent<AccountsToolbarProps> = ({
             </ToolbarFilter>
 
             <ToolbarFilter
-              chips={providerSelections}
-              deleteChip={(category, chip) => onProviderMenuSelect(undefined, chip as string)}
-              deleteChipGroup={() => setProviderSelections([])}
+              labels={providerSelections}
+              deleteLabel={(category, chip) => onProviderMenuSelect(undefined, chip as string)}
+              deleteLabelGroup={() => setProviderSelections([])}
               categoryName="Provider"
               showToolbarItem={activeAttributeMenu === 'Provider'}
             >

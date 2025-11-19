@@ -1,4 +1,4 @@
-import { PageSection, PageSectionVariants, Panel, Text, TextContent } from '@patternfly/react-core';
+import { PageSection, Panel, Content } from '@patternfly/react-core';
 import SchedulerTableToolbar from './SchedulerTableToolbar';
 import { parseAsArrayOf, parseAsString, parseAsStringEnum, useQueryStates } from 'nuqs';
 import { ClusterActions } from '@app/types/types';
@@ -18,12 +18,12 @@ const Scheduler: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <PageSection variant={PageSectionVariants.light}>
-        <TextContent>
-          <Text component="h1">Scheduled Actions</Text>
-        </TextContent>
+      <PageSection hasBodyWrapper={false}>
+        <Content>
+          <Content component="h1">Scheduled Actions</Content>
+        </Content>
       </PageSection>
-      <PageSection variant={PageSectionVariants.light} isFilled>
+      <PageSection hasBodyWrapper={false} isFilled>
         <Panel>
           <SchedulerTableToolbar
             searchValue={accountName}

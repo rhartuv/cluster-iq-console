@@ -1,4 +1,4 @@
-import { PageSection, PageSectionVariants, Panel, TextContent, Text } from '@patternfly/react-core';
+import { PageSection, Panel, Content } from '@patternfly/react-core';
 import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import AccountsToolbar from './components/AccountsToolbar';
@@ -13,12 +13,12 @@ const Accounts: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <PageSection variant={PageSectionVariants.light}>
-        <TextContent>
-          <Text component="h1">Accounts</Text>
-        </TextContent>
+      <PageSection hasBodyWrapper={false}>
+        <Content>
+          <Content component="h1">Accounts</Content>
+        </Content>
       </PageSection>
-      <PageSection variant={PageSectionVariants.light} isFilled>
+      <PageSection hasBodyWrapper={false} isFilled>
         <Panel>
           <AccountsToolbar
             onSearchChange={setSearchValue}

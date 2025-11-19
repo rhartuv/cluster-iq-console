@@ -13,10 +13,10 @@ import {
 import { CloudProvider } from './types';
 
 const PATTERNFLY_COLORS = {
-  success: 'var(--pf-v5-global--success-color--100)',
-  danger: 'var(--pf-v5-global--danger-color--100)',
-  warning: 'var(--pf-v5-global--warning-color--100)',
-  disabled: 'var(--pf-v5-global--disabled-color--100)',
+  success: 'var(--pf-t--temp--dev--tbd)' /* CODEMODS: original v5 color was --pf-v5-global--success-color--100 */,
+  danger: 'var(--pf-t--temp--dev--tbd)' /* CODEMODS: original v5 color was --pf-v5-global--danger-color--100 */,
+  warning: 'var(--pf-t--temp--dev--tbd)' /* CODEMODS: original v5 color was --pf-v5-global--warning-color--100 */,
+  disabled: 'var(--pf-t--temp--dev--tbd)' /* CODEMODS: original v5 color was --pf-v5-global--disabled-color--100 */,
 } as const;
 
 const CLUSTER_ICON = <OpenshiftIcon color={PATTERNFLY_COLORS.danger} />;

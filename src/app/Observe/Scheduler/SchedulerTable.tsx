@@ -8,7 +8,8 @@ import {
 import { ActionsColumn, IAction, Table, Tbody, Td, Th, Thead, Tr } from '@patternfly/react-table';
 import React, { useEffect, useState } from 'react';
 import { useTableSort } from '@app/hooks/useTableSort.tsx';
-import { Button, EmptyState, EmptyStateHeader, EmptyStateIcon, Modal, ModalVariant } from '@patternfly/react-core';
+import { Button, EmptyState } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import { TablePagination } from '@app/components/common/TablesPagination';
 import { getPaginatedSlice } from '@app/utils/tablePagination';
 import { SearchIcon } from '@patternfly/react-icons';
@@ -26,9 +27,7 @@ const columnNames = {
 };
 
 const EmptyStateNoFound: React.FunctionComponent = () => (
-  <EmptyState>
-    <EmptyStateHeader titleText="No scheduled actions" headingLevel="h4" icon={<EmptyStateIcon icon={SearchIcon} />} />
-  </EmptyState>
+  <EmptyState headingLevel="h4" icon={SearchIcon} titleText="No scheduled actions"></EmptyState>
 );
 
 export const SchedulerTable: React.FunctionComponent<SchedulerTableProps> = ({

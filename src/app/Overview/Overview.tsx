@@ -1,17 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import {
-  Card,
-  CardBody,
-  CardTitle,
-  Gallery,
-  Grid,
-  GridItem,
-  PageSection,
-  PageSectionVariants,
-  TextContent,
-  Text,
-} from '@patternfly/react-core';
+import { Card, CardBody, CardTitle, Gallery, Grid, GridItem, PageSection, Content } from '@patternfly/react-core';
 import { LoadingSpinner } from '@app/components/common/LoadingSpinner';
 import { generateCards } from './components/CardData';
 import { CloudProvider } from './types';
@@ -58,12 +47,12 @@ const AggregateStatusCards: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <PageSection variant={PageSectionVariants.light}>
-        <TextContent>
-          <Text component="h1">Overview</Text>
-        </TextContent>
+      <PageSection hasBodyWrapper={false}>
+        <Content>
+          <Content component="h1">Overview</Content>
+        </Content>
       </PageSection>
-      <PageSection>
+      <PageSection hasBodyWrapper={false}>
         <Grid hasGutter>
           {Object.entries(cardData).map(([groupName, cards], groupIndex) => (
             <GridItem key={groupIndex} span={groupName === 'activityCards' ? 12 : undefined}>

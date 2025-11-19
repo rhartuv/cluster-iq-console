@@ -4,13 +4,12 @@ import {
   FormHelperText,
   HelperText,
   HelperTextItem,
-  Modal,
-  ModalVariant,
   Radio,
   Stack,
   StackItem,
   TextInput,
 } from '@patternfly/react-core';
+import { Modal, ModalVariant } from '@patternfly/react-core/deprecated';
 import React from 'react';
 import { PowerAction } from './ClusterDetailsDropdown';
 import DateTimePicker from './DateTimePicker';
