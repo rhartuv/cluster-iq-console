@@ -20,12 +20,13 @@ import {
   DropdownList,
 } from '@patternfly/react-core';
 
-import { QuestionCircleIcon, RedhatIcon, ExternalLinkAltIcon } from '@patternfly/react-icons';
+import { QuestionCircleIcon, ExternalLinkAltIcon } from '@patternfly/react-icons';
 import SidebarNavigation from './SidebarNavigation';
 import { useUser } from '../Contexts/UserContext';
 import { NavLink } from 'react-router-dom';
 import AboutModalComponent from './AboutModal';
 import { REPOSITORY_URL } from '@app/constants';
+import faviconImg from '../../assets/favicon.png';
 interface IAppLayout {
   children: React.ReactNode;
 }
@@ -134,8 +135,9 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
                   variant="plain"
                   onClick={() => setIsHelpMenuOpen(!isHelpMenuOpen)}
                   isExpanded={isHelpMenuOpen}
+                  style={{ color: '#ffffff', fontSize: '1em' }}
                 >
-                  <QuestionCircleIcon />
+                  <QuestionCircleIcon style={{ color: '#ffffff', fontSize: '1.5em' }} />
                 </MenuToggle>
               )}
             >
@@ -157,6 +159,9 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
                     color: 'white',
                     padding: '0 24px',
                     fontWeight: 'normal',
+                    fontSize: '1.2em',
+                    border: '1px solid #ffffff',
+                    borderRadius: '4px',
                   }}
                 >
                   {userEmail || 'User'}
@@ -172,7 +177,7 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
   );
 
   const header = (
-    <Masthead>
+    <Masthead style={{ backgroundColor: '#000000', color: '#ffffff' }}>
       <MastheadMain>
         <MastheadToggle>
           <PageToggleButton
@@ -182,24 +187,32 @@ const AppLayout: React.FunctionComponent<IAppLayout> = ({ children }) => {
             isSidebarOpen={isSidebarOpen}
             onSidebarToggle={onSidebarToggle}
             id="vertical-nav-toggle"
+            style={{ color: '#ffffff', fontSize: '1.1em', marginTop: '0.5em' }}
           ></PageToggleButton>
         </MastheadToggle>
-        <RedhatIcon style={{ color: 'red', fontSize: '2.8em' }} />
         <MastheadBrand data-codemods>
-          <MastheadLogo data-codemods style={{ marginLeft: '10px', color: 'white', fontSize: '2em' }}>
+          <MastheadLogo
+            data-codemods
+            style={{ display: 'flex', alignItems: 'center', gap: '10px', color: 'white', fontSize: '2.1em' }}
+          >
+            <img src={faviconImg} alt="Red Hat" style={{ height: '4em', width: 'auto', marginTop: '0.5em' }} />
             <NavLink to="/" style={{ color: 'white', textDecoration: 'none' }}>
               ClusterIQ
             </NavLink>
           </MastheadLogo>
         </MastheadBrand>
       </MastheadMain>
-      <MastheadContent style={{ width: '100%' }}>{headerToolbar}</MastheadContent>
+      <MastheadContent style={{ width: '100%', color: '#ffffff' }}>{headerToolbar}</MastheadContent>
     </Masthead>
   );
 
   const sidebar = (
-    <PageSidebar isSidebarOpen={isSidebarOpen} id="vertical-sidebar">
-      <PageSidebarBody>
+    <PageSidebar
+      isSidebarOpen={isSidebarOpen}
+      id="vertical-sidebar"
+      style={{ backgroundColor: '#2d2d2d', color: '#ffffff' }}
+    >
+      <PageSidebarBody style={{ backgroundColor: '#2d2d2d', color: '#ffffff' }}>
         <SidebarNavigation />
       </PageSidebarBody>
     </PageSidebar>

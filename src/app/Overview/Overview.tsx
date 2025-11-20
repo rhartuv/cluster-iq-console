@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
-import { Card, CardBody, CardTitle, Gallery, Grid, GridItem, PageSection, Content } from '@patternfly/react-core';
+import { Card, CardBody, CardTitle, Grid, GridItem, PageSection, Content } from '@patternfly/react-core';
 import { LoadingSpinner } from '@app/components/common/LoadingSpinner';
 import { generateCards } from './components/CardData';
 import { CloudProvider } from './types';
@@ -47,55 +47,54 @@ const AggregateStatusCards: React.FunctionComponent = () => {
 
   return (
     <React.Fragment>
-      <PageSection hasBodyWrapper={false}>
+      <PageSection
+        hasBodyWrapper={false}
+        style={{ marginBottom: '1rem', paddingBottom: '1rem', backgroundColor: '#e5e5e5' }}
+      >
         <Content>
-          <Content component="h1">Overview</Content>
+          <Content component="h1" style={{ color: '#000000' }}>
+            Overview
+          </Content>
         </Content>
       </PageSection>
-      <PageSection hasBodyWrapper={false}>
+      <PageSection hasBodyWrapper={false} style={{ marginTop: '1rem' }}>
         <Grid hasGutter>
           {Object.entries(cardData).map(([groupName, cards], groupIndex) => (
-            <GridItem key={groupIndex} span={groupName === 'activityCards' ? 12 : undefined}>
+            <React.Fragment key={groupIndex}>
               {groupName === 'activityCards' ? (
                 // Full width Activity card with double height
-                <Card style={{ minHeight: '500px' }} component="div">
-                  <CardTitle style={{ textAlign: 'center' }}>{cards[0].title}</CardTitle>
-                  <CardBody style={{ minHeight: '450px', padding: '1rem' }}>
-                    {eventsLoading ? (
-                      <LoadingSpinner />
-                    ) : eventsError ? (
-                      <div style={{ color: 'red' }}>
-                        Error: {eventsError}
-                        <br />
-                        <small>Check console for details</small>
-                      </div>
-                    ) : cards[0].customComponent ? (
-                      cards[0].customComponent
-                    ) : (
-                      renderContent(cards[0].content, cards[0].layout)
-                    )}
-                  </CardBody>
-                </Card>
+                <GridItem span={12}>
+                  <Card style={{ minHeight: '500px' }} component="div">
+                    <CardTitle style={{ textAlign: 'center' }}>{cards[0].title}</CardTitle>
+                    <CardBody style={{ minHeight: '450px', padding: '1rem' }}>
+                      {eventsLoading ? (
+                        <LoadingSpinner />
+                      ) : eventsError ? (
+                        <div style={{ color: 'red' }}>
+                          Error: {eventsError}
+                          <br />
+                          <small>Check console for details</small>
+                        </div>
+                      ) : cards[0].customComponent ? (
+                        cards[0].customComponent
+                      ) : (
+                        renderContent(cards[0].content, cards[0].layout)
+                      )}
+                    </CardBody>
+                  </Card>
+                </GridItem>
               ) : (
-                // Regular cards in Gallery
-                <Gallery
-                  hasGutter
-                  style={
-                    {
-                      '--pf-t-global--layout--grid-template-columns--min': '30%',
-                      '--pf-t-global--spacer--md': '1rem',
-                    } as any
-                  }
-                >
-                  {cards.map((card, cardIndex) => (
-                    <Card style={{ textAlign: 'center' }} key={`${groupIndex}${cardIndex}`} component="div">
+                // Cards in 2 rows of 3 boxes each (span={4} means 3 per row)
+                cards.map((card, cardIndex) => (
+                  <GridItem key={`${groupIndex}${cardIndex}`} span={4}>
+                    <Card style={{ textAlign: 'center' }} component="div">
                       <CardTitle>{card.title}</CardTitle>
                       <CardBody>{renderContent(card.content, card.layout)}</CardBody>
                     </Card>
-                  ))}
-                </Gallery>
+                  </GridItem>
+                ))
               )}
-            </GridItem>
+            </React.Fragment>
           ))}
         </Grid>
       </PageSection>

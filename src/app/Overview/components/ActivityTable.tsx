@@ -7,13 +7,13 @@ interface ActivityTableProps {
   events: Event[];
 }
 
-const getResultIcon = (result: string) => {
-  const PATTERNFLY_COLORS = {
-    success: 'var(pf-t--global--icon--color--status--success--default)',
-    danger: 'var(pf-t--global--icon--color--status--danger--default)',
-    warning: 'var(pf-t--global--border--color--status--warning--default)',
-  } as const;
+const PATTERNFLY_COLORS = {
+  success: 'var(--pf-t--global--icon--color--status--success--default)',
+  danger: 'var(--pf-t--global--icon--color--status--danger--default)',
+  warning: 'var(--pf-t--global--border--color--status--warning--default)',
+} as const;
 
+const getResultIcon = (result: string) => {
   switch (result.toLowerCase()) {
     case 'success':
       return <CheckCircleIcon color={PATTERNFLY_COLORS.success} />;
@@ -26,6 +26,11 @@ const getResultIcon = (result: string) => {
     default:
       return <WarningTriangleIcon color={PATTERNFLY_COLORS.warning} />;
   }
+};
+
+const capitalizeAction = (action: string): string => {
+  if (!action) return action;
+  return action.charAt(0).toUpperCase() + action.slice(1).toLowerCase();
 };
 
 export const ActivityTable: React.FunctionComponent<ActivityTableProps> = ({ events }) => {
@@ -50,7 +55,7 @@ export const ActivityTable: React.FunctionComponent<ActivityTableProps> = ({ eve
           <Tr key={event.id}>
             <Td>{getResultIcon(event.result)}</Td>
             <Td>{new Date(event.timestamp).toLocaleString()}</Td>
-            <Td>{event.action}</Td>
+            <Td>{capitalizeAction(event.action)}</Td>
             <Td>{event.result}</Td>
             <Td>
               {event.resourceType} {event.resourceId}

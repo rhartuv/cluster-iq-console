@@ -1,0 +1,58 @@
+/* Global font size - matching Recent events table */
+body {
+  font-size: 1.1em !important;
+}
+
+/* Header (Masthead) - override PatternFly defaults for all header elements */
+.pf-c-masthead * {
+  color: #ffffff !important;
+}
+
+/* Sidebar - override PatternFly defaults for all sidebar elements */
+.pf-c-page__sidebar * {
+  color: #ffffff !important;
+}
+
+/* Navigation items - ensure white text and larger font for all nav elements */
+.pf-c-nav__item,
+.pf-c-nav__link,
+.pf-c-nav__item.pf-m-expandable,
+.pf-c-nav__item.pf-m-expandable > .pf-c-nav__link,
+.pf-c-nav__item.pf-m-expandable .pf-c-nav__link,
+.pf-c-nav__item.pf-m-expandable button,
+.pf-c-nav__item.pf-m-expandable .pf-c-nav__link *,
+.pf-c-nav__item a,
+.pf-c-nav__item a:visited,
+.pf-c-nav__item a:link,
+.pf-c-nav__item a:hover,
+.pf-c-nav__item a:active,
+.pf-c-nav__item.pf-m-expandable a,
+.pf-c-nav__item.pf-m-expandable a:visited,
+.pf-c-nav__item.pf-m-expandable a:link,
+.pf-c-nav__item.pf-m-expandable a:hover,
+.pf-c-nav__item.pf-m-expandable a:active {
+  color: #ffffff !important;
+  background-color: #2d2d2d !important;
+  font-size: 1.2em !important;
+}
+
+/* Expandable arrow (>) white - override PatternFly icon colors */
+.pf-c-nav__item.pf-m-expandable svg,
+.pf-c-nav__item.pf-m-expandable .pf-c-nav__toggle-icon svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* Hamburger menu icon white - override PatternFly defaults */
+.pf-c-page__toggle svg,
+#vertical-nav-toggle svg {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
+
+/* User dropdown arrow white */
+button[aria-label='User menu'] svg,
+button[aria-label='User menu'] .pf-c-menu-toggle__toggle-icon {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+}
